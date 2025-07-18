@@ -21,13 +21,12 @@ services:
           type: redis
           property: connectionString
 
-databases:
-  - name: chatwoot-db
-    plan: free
-
-services:
   - name: chatwoot-redis
     type: redis
     plan: free
     ipAllowList: []
+
+databases:
+  - name: chatwoot-db
+    plan: free
 
