@@ -44,7 +44,6 @@ databases:
   - name: chatwoot-db
     plan: free
 
-services:
   - name: chatwoot-redis
     type: redis
     plan: free
