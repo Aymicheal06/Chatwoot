@@ -5,7 +5,8 @@ services:
     plan: free
     branch: develop
     buildCommand: bundle install && yarn install && RAILS_ENV=production bundle exec rake assets:precompile
-    startCommand: bundle exec puma -C config/puma.rb
+    startCommand: bundle exec rails ip_lookup:setup && foreman start -f Procfile.dev
+
     envVars:
       - key: RAILS_ENV
         value: production
