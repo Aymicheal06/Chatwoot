@@ -40,10 +40,12 @@ services:
           type: redis
           property: connectionString
 
-databases:
-  - name: chatwoot-db
-    plan: free
 
   - name: chatwoot-redis
     type: redis
+    plan: free
+
+
+databases:
+  - name: chatwoot-db
     plan: free
