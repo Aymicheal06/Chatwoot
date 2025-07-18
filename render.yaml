@@ -21,33 +21,13 @@ services:
           type: redis
           property: connectionString
 
-  - type: worker
-    name: chatwoot-worker
-    env: ruby
-    plan: free
-    branch: develop
-    startCommand: bundle exec sidekiq -C config/sidekiq.yml
-    envVars:
-      - key: RAILS_ENV
-        value: production
-      - key: DATABASE_URL
-        fromDatabase:
-          name: chatwoot-db
-          property: connectionString
-      - key: REDIS_URL
-        fromService:
-          name: chatwoot-redis
-          type: redis
-          property: connectionString
-
-  - type: redis
-    name: chatwoot-redis
-    plan: free
-    ipAllowList:
-      - source: 0.0.0.0/0
-        description: Allow all IPs
-
 databases:
   - name: chatwoot-db
     plan: free
+
+services:
+  - name: chatwoot-redis
+    type: redis
+    plan: free
+    ipAllowList: []
 
