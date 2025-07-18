@@ -40,12 +40,14 @@ services:
           type: redis
           property: connectionString
 
-
-  - name: chatwoot-redis
-    type: redis
+  - type: redis
+    name: chatwoot-redis
     plan: free
-
+    ipAllowList:
+      - source: 0.0.0.0/0
+        description: Allow all IPs
 
 databases:
   - name: chatwoot-db
     plan: free
+
